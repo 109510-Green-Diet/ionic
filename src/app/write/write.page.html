@@ -1,0 +1,144 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="food"></ion-back-button>
+    </ion-buttons>
+    <ion-title>新增食譜</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-segment (ionChange)="segmentChanged()" [(ngModel)]="segment" color="warning">
+      <ion-segment-button value="0">
+        食譜簡介
+      </ion-segment-button>
+      <ion-segment-button value="1">
+        所需食材
+      </ion-segment-button>
+      <ion-segment-button value="2">
+       步驟
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides #slides (ionSlideDidChange)="slideChanged()">
+    <ion-slide>	
+      <ion-list>
+        <ion-item>
+          <ion-label>時間</ion-label>
+            <ion-datetime value="MM/DD/YYYY" [(ngModel)]="time"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label position="fixed">食譜名稱</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>料理時間</ion-label>
+            <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+              <ion-select-option value="20">20分以下</ion-select-option>
+              <ion-select-option value="30">30</ion-select-option>
+              <ion-select-option value="40">40</ion-select-option>
+              <ion-select-option value="50">50</ion-select-option>
+              <ion-select-option value="60">60</ion-select-option>
+              <ion-select-option value="70">70</ion-select-option>
+              <ion-select-option value="80">80</ion-select-option>
+              <ion-select-option value="90">90</ion-select-option>
+              <ion-select-option value="100">100</ion-select-option>
+              <ion-select-option value="110">110</ion-select-option>
+              <ion-select-option value="120">120</ion-select-option>
+              <ion-select-option value="150">150</ion-select-option>
+              <ion-select-option value="180">180以上</ion-select-option>
+
+            </ion-select>
+        </ion-item>
+       
+        <ion-item>
+          <ion-label>份量(人數)</ion-label>
+            <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+              <ion-select-option value="1">1</ion-select-option>
+              <ion-select-option value="2">2</ion-select-option>
+              <ion-select-option value="3">3</ion-select-option>
+              <ion-select-option value="4">4</ion-select-option>
+              <ion-select-option value="5">5</ion-select-option>
+            </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-list>        
+        <ion-list lines="none">
+          <form [formGroup]="foodForm">
+            <ion-item *ngFor="let control of foodForm.controls | keyvalue">
+              <ion-input required type="text" [formControlName]="control.key" placeHolder="請輸入食材"></ion-input>
+              <ion-icon (click)="removeFood(control)" name="close-circle"></ion-icon>
+            </ion-item>
+          </form>
+        </ion-list>
+        <ion-button expand="full" color="light" (click)="addFood()">新增食材</ion-button>
+
+        <ion-list lines="none">
+          <form [formGroup]="seasoningForm">
+            <ion-item *ngFor="let control of seasoningForm.controls | keyvalue">
+              <ion-input required type="text" [formControlName]="control.key" placeHolder="請輸入調味料"></ion-input>
+              <ion-icon (click)="removeSeasoning(control)" name="close-circle"></ion-icon>
+            </ion-item>
+          </form>
+        </ion-list>
+        <ion-button expand="full" color="light" (click)="addSeasoning()">新增調味料</ion-button>
+      </ion-list>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-list>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>步驟1</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          <ion-input placeholder="填寫的越詳細越好喔~"></ion-input>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>步驟2</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          <ion-input placeholder="填寫的越詳細越好喔~"></ion-input>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>步驟3</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          <ion-input placeholder="填寫的越詳細越好喔~"></ion-input>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>步驟4</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          <ion-input placeholder="填寫的越詳細越好喔~"></ion-input>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>步驟5</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          <ion-input placeholder="填寫的越詳細越好喔~"></ion-input>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

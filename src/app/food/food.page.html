@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button href="/write">
+        <ion-icon slot="icon-only"  md="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>食譜推薦</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <button ion-button clear>
+      <a href="/f-detail">
+        <ion-item>
+          <ion-thumbnail item-left>
+          <img src="assets/images/c.jpg">
+          </ion-thumbnail>		
+          <ion-thumbnail>
+            <h2>蔬菜濃湯</h2>
+            <p>蛋白質:2.8g 脂肪:5.4g <br> 醣類:12g </p>
+            <p>熱量:100Kcal</p>
+          </ion-thumbnail>	
+        </ion-item>
+      </a>
+    </button>
+    
+    <button ion-button clear>
+      <a href="/f-detail">
+        <ion-item>
+          <ion-thumbnail item-left>
+            <img src="assets/images/a.jpg">
+          </ion-thumbnail>
+          <ion-thumbnail >
+            <h2>番茄炒蛋</h2>
+            <p>蛋白質:5.9g 脂肪:12.0g 醣類:2.6g </p>
+            <p> 熱量:140Kcal  </p>
+          </ion-thumbnail>
+        </ion-item>
+      </a>
+    </button>
+  
+    <button ion-button clear>
+      <a href="/f-detail">
+        <ion-item>
+          <ion-thumbnail item-left>
+            <img src="assets/images/b.jpg">
+          </ion-thumbnail>
+          <ion-thumbnail>
+            <h2>清蒸鱈魚</h2>
+            <p>蛋白質:15g 脂肪:14.5g 醣類:0.7g </p>
+            <p>熱量:200Kcal</p>
+          </ion-thumbnail>
+        </ion-item>
+      </a>
+    </button>
+  </ion-list>
+</ion-content>

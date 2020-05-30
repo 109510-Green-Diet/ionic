@@ -1,0 +1,86 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>營養小知識</ion-title>
+  </ion-toolbar>
+  
+  <ion-toolbar>
+    <ion-segment (ionChange)="segmentChanged()" [(ngModel)]="segment" color="warning">
+      <ion-segment-button value="0">
+        營養六大類
+      </ion-segment-button>
+      <ion-segment-button value="1">
+        活動量介紹
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-slides #slides (ionSlideDidChange)="slideChanged()">
+    <ion-slide>	
+      <ion-list>
+        <button ion-button clear>
+          <a href="/detail">
+            <ion-item>
+              <ion-thumbnail item-left>
+                <img src="assets/images/wheat.png">
+              </ion-thumbnail>
+              <ion-thumbnail>
+                <h4>全榖雜糧類</h4>
+                <p>白米飯是最常被當作主食...</p>
+              </ion-thumbnail>
+            </ion-item>
+          </a>
+        </button>
+      
+        <button ion-button clear>
+          <a href="/detail">
+            <ion-item>
+              <ion-thumbnail item-left>
+                <img src="assets/images/food.png">
+              </ion-thumbnail>
+              <ion-thumbnail>
+                <h4>蔬菜類</h4>
+                <p>蔬菜類食物為維生素、礦物質及...</p>
+              </ion-thumbnail>
+            </ion-item>
+          </a>
+        </button>
+
+        <button ion-button clear>
+          <a href="/detail">
+            <ion-item>
+              <ion-thumbnail item-left>
+              <img src="assets/images/protein.png">
+              </ion-thumbnail>		
+              <ion-thumbnail>
+                <h4>豆魚蛋肉類</h4>
+                <p>豆魚蛋肉類食物為蛋白質主要來源，建議儘量...</p>
+              </ion-thumbnail>	
+            </ion-item>
+          </a>
+      </button>
+      </ion-list>
+    </ion-slide>
+      
+    <ion-slide>
+      <button ion-button clear>
+        <a href="/detail">
+          <ion-item>
+            <ion-thumbnail item-left>
+            <img src="assets/images/calories.png">
+            </ion-thumbnail>		
+            <ion-thumbnail>
+              <h4>熱量來源</h4>
+              <p>人體攝取食物轉化成熱量後，用以維持...</p>
+            </ion-thumbnail>	
+          </ion-item>
+        </a>
+    </button>
+  </ion-slide>
+  </ion-slides>
+</ion-content>

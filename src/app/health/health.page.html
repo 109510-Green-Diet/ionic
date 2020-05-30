@@ -1,0 +1,77 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button href="experience">
+        <ion-icon slot="icon-only" md="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>健康大小事</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment (ionChange)="segmentChanged()" [(ngModel)]="segment" color="warning">
+      <ion-segment-button value="0">
+        健康大小事
+      </ion-segment-button>
+      <ion-segment-button value="1">
+        吃出文章來
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides #slides (ionSlideDidChange)="slideChanged()">
+    <ion-slide>
+      <ion-list>
+        <button ion-button clear>
+          <a href="/h-detail">
+            <ion-item>
+              <ion-thumbnail item-left>
+                <img src="assets/images/1.jpg">
+              </ion-thumbnail>
+              <ion-thumbnail>
+                <h5>400次咖啡風靡社群！營養師曝潛藏危機：4種人少喝</h5>
+                <p>社群平台Instagram近來吹起「400次手打咖啡」挑戰...</p>
+              </ion-thumbnail>
+            </ion-item>
+          </a>
+        </button>
+
+        <button ion-button clear>
+          <a href="/h-detail">
+            <ion-item>
+              <ion-thumbnail item-left>
+                <img src="assets/images/2.jpg">
+              </ion-thumbnail>
+              <ion-thumbnail>
+                <h5>球類選手運動前喝黑咖啡 研究：助提升表現</h5>
+                <p>台師大團隊研究發現，攝取咖啡因可延緩高強度運動時的疲勞，球類運動員在運動前攝取黑咖啡...</p>
+              </ion-thumbnail>
+            </ion-item>
+          </a>
+        </button>
+      </ion-list>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-list>
+        <button ion-button clear>
+          <a href="/h-detail">
+            <ion-item>
+              <ion-thumbnail item-left>
+                <img src="assets/images/3.jpg">
+              </ion-thumbnail>
+              <ion-thumbnail>
+                <h5>自製芝麻醬</h5>
+                <p>自製芝麻醬對健康十分有益，在食療上可以起很大的作用，跟魚肉一樣含有豐富的歐米伽3不飽和脂肪酸...</p>
+              </ion-thumbnail>
+            </ion-item>
+          </a>
+        </button>
+      </ion-list>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

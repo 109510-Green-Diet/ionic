@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="about"></ion-back-button>
+    </ion-buttons>
+    <ion-title>我要發問</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Date</ion-label>
+    <ion-datetime value="MMM/DD/YYYY" [(ngModel)]="time" readonly></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>電子郵件</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">內容</ion-label>
+    <ion-textarea rows="6" cols="20"></ion-textarea>
+  </ion-item>
+
+  <ion-button>送出</ion-button>
+</ion-content>

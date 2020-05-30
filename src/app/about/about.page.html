@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button href="question">
+        <ion-icon slot="icon-only" md="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>關於我們</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment (ionChange)="segmentChanged()" [(ngModel)]="segment" color="warning">
+      <ion-segment-button value="0">
+        關於我們
+      </ion-segment-button>
+      <ion-segment-button value="1">
+        常見問題
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides #slides (ionSlideDidChange)="slideChanged()">
+    <ion-slide>
+      
+    </ion-slide>
+
+    <ion-slide>
+      <ion-list>
+        <button ion-button clear>
+          <a href="/q-detail">
+            <ion-item>
+                <h3>Q1:要怎麼更改大頭貼?</h3>
+            </ion-item>
+          </a>
+        </button>
+        <button ion-button clear>
+          <a href="/q-detail">
+            <ion-item>
+                <h3>Q2:如何新增食譜?</h3>
+            </ion-item>
+          </a>
+        </button>
+      </ion-list>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
