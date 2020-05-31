@@ -27,7 +27,7 @@
       <ion-list>
         <ion-item>
           <ion-label>時間</ion-label>
-            <ion-datetime value="MM/DD/YYYY" [(ngModel)]="time"></ion-datetime>
+            <ion-datetime value="MM/DD/YYYY" [(ngModel)]="time" readonly></ion-datetime>
         </ion-item>
         <ion-item>
           <ion-label position="fixed">食譜名稱</ion-label>
@@ -36,7 +36,7 @@
 
         <ion-item>
           <ion-label>料理時間</ion-label>
-            <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+            <ion-select value="brown" okText="確認" cancelText="取消">
               <ion-select-option value="20">20分以下</ion-select-option>
               <ion-select-option value="30">30</ion-select-option>
               <ion-select-option value="40">40</ion-select-option>
@@ -56,7 +56,7 @@
        
         <ion-item>
           <ion-label>份量(人數)</ion-label>
-            <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+            <ion-select value="brown" okText="確定" cancelText="取消">
               <ion-select-option value="1">1</ion-select-option>
               <ion-select-option value="2">2</ion-select-option>
               <ion-select-option value="3">3</ion-select-option>
@@ -93,52 +93,26 @@
 
     <ion-slide>
       <ion-list>
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>步驟1</ion-card-title>
-        </ion-card-header>
-      
-        <ion-card-content>
-          <ion-input placeholder="填寫的越詳細越好喔~"></ion-input>
-        </ion-card-content>
-      </ion-card>
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>步驟2</ion-card-title>
-        </ion-card-header>
-      
-        <ion-card-content>
-          <ion-input placeholder="填寫的越詳細越好喔~"></ion-input>
-        </ion-card-content>
-      </ion-card>
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>步驟3</ion-card-title>
-        </ion-card-header>
-      
-        <ion-card-content>
-          <ion-input placeholder="填寫的越詳細越好喔~"></ion-input>
-        </ion-card-content>
-      </ion-card>
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>步驟4</ion-card-title>
-        </ion-card-header>
-      
-        <ion-card-content>
-          <ion-input placeholder="填寫的越詳細越好喔~"></ion-input>
-        </ion-card-content>
-      </ion-card>
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>步驟5</ion-card-title>
-        </ion-card-header>
-      
-        <ion-card-content>
-          <ion-input placeholder="填寫的越詳細越好喔~"></ion-input>
-        </ion-card-content>
-      </ion-card>
-    </ion-list>
+        <form [formGroup]="stepForm">
+          <ion-item *ngFor="let control of stepForm.controls | keyvalue">
+            <ion-card lines="none">
+              <ion-card-header>
+                <ion-thumbnail>
+                  <ion-button fill="clear" expand="full" color=#ddddddd (click)="selectImage()">
+                    <ion-icon slot="start" name="camera"></ion-icon>
+                    選擇照片
+                  </ion-button>
+                </ion-thumbnail>
+                <ion-card-title>步驟</ion-card-title>
+              </ion-card-header>
+              <ion-input required type="text" [formControlName]="control.key" placeHolder="填寫的越詳細越好喔~"></ion-input>
+              <ion-icon (click)="removeStep(control)" name="close-circle"></ion-icon>
+          </ion-card>
+        </ion-item>
+        </form>
+        <ion-button>送出</ion-button>
+        <ion-button expand="full" color="light" (click)="addStep()">新增步驟</ion-button>
+      </ion-list>
     </ion-slide>
   </ion-slides>
 </ion-content>
